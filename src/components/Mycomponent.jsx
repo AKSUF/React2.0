@@ -7,17 +7,19 @@ export default function MyComponent() {
     const addClick = () => {
         setCount((prevCount) => prevCount + 1);
     };
-
     const tick = () => {
         setDate(new Date());
     };
-
+    
     useEffect(() => {
         document.title = `Clicked ${count} times`;
     }, [count]);
-
     useEffect(() => {
-        setInterval(tick, 1000);
+       const interval= setInterval(tick, 1000);
+
+       return()=>{
+        clearInterval(interval);
+       }
     }, []);
 
     return (
