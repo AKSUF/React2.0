@@ -14,18 +14,23 @@ componentDidUpdate(){
     document.title=`Clicked ${count} times`;
 }
 
+componentWillUnmount(){
+    clearInterval(this.interval);
+}
+
 tick=()=>{
     this.setState({
         date:new Date(),
     })
 }
+
 addClick=()=>{
     this.setState(({count})=>({
         count:count+1,
     }))
 }
 
-    render(){
+render(){
 const{date}=this.state;
 
         return(

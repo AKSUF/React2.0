@@ -1,14 +1,21 @@
-import logo from './logo.svg';
 import './App.css';
-import Todo from './Todo';
 import MyComponent from './components/Mycomponent';
+import { useState } from 'react';
 
 function App() {
-  return (
-    <div className="App bg-red-900">
-<MyComponent></MyComponent>
-    </div>
-  );
+    const [show, setShow] = useState(false);
+
+    return (
+        <div className="App bg-red-900">
+            <div>{show && <MyComponent />}</div>
+            <p>
+                <button type='button' onClick={() => setShow(!show)}>
+                    {show ? 'Hide post' : 'Show post'}
+                </button>
+            </p>
+        </div>
+    );
 }
 
 export default App;
+
